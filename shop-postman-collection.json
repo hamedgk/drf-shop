@@ -7,62 +7,29 @@
 	},
 	"item": [
 		{
-			"name": "products",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "Authorization",
-						"value": "Token 8af6929749fe6fc728e7229e5b437193f595e2c6",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:8000/api/products",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "order",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 8af6929749fe6fc728e7229e5b437193f595e2c6",
+						"value": "Token 8c12e4ad60923e43ee640f1adf002451c1084025",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"product\" : 1,\n    \"user\" : 2\n}",
+					"raw": "{\n    \"products\" : [\n        {\n            \"product\" : 1,\n            \"quantity\" : 2\n        },\n        {\n            \"product\" : 2,\n            \"quantity\" : 3\n        },\n        {\n            \"product\" : 3,\n            \"quantity\" : 1\n        },\n        {\n            \"product\" : 4,\n            \"quantity\" : 1\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,54 +58,28 @@
 		{
 			"name": "order",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 8af6929749fe6fc728e7229e5b437193f595e2c6",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://127.0.0.1:8000/api/orders/:id/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"orders",
-						":id",
-						""
-					],
-					"variable": [
-						{
-							"key": "id",
-							"value": "2"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "order",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Token 8af6929749fe6fc728e7229e5b437193f595e2c6",
-						"type": "text"
+						"value": "Token 8c12e4ad60923e43ee640f1adf002451c1084025",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"product\" : 1,\n    \"user\" : 2\n}",
+					"raw": "{\n    \"products\": [\n        {\n            \"product\": 4\n        },\n        {\n            \"product\" : 3\n        },\n        {\n            \"product\" : 2\n        }\n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -164,7 +105,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "28"
 						}
 					]
 				}
@@ -174,35 +115,116 @@
 		{
 			"name": "order",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 0b8f403ba4c1b0796183bbeeba132771b88e8031",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\" : \"SHIPPED\",\n    \"products\" : [\n        {\n            \"product\" : 4\n        },\n        {\n            \"product\" : 3,\n            \"quantity\" : 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/orders/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"orders",
+						""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "order_by_id",
 			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\" : \"hamedgk\",\n    \"password\" : \"hahafafa\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer}}",
+							"type": "string"
 						}
-					}
+					]
 				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 0b8f403ba4c1b0796183bbeeba132771b88e8031",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://127.0.0.1:8000/tokengen/",
+					"raw": "http://127.0.0.1:8000/api/orders/:id/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -212,8 +234,16 @@
 					],
 					"port": "8000",
 					"path": [
-						"tokengen",
+						"api",
+						"orders",
+						":id",
 						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "26"
+						}
 					]
 				}
 			},
@@ -222,35 +252,96 @@
 		{
 			"name": "product",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "product_by_id",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "product",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_admin}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "product",
-			"request": {
-				"method": "PATCH",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 8af6929749fe6fc728e7229e5b437193f595e2c6",
+						"value": "Token f024b3253f386cf1754ef91a88a1ab3b7d6a5274",
 						"type": "text"
 					}
 				],
@@ -273,7 +364,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": ""
+							"value": "4"
 						}
 					]
 				}
@@ -283,8 +374,105 @@
 		{
 			"name": "product",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_admin}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token f024b3253f386cf1754ef91a88a1ab3b7d6a5274",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\" : \"159000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/:id/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer_admin}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
-				"header": []
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 09681c144b270fd45414b97da49dc15b59af445c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"maple syrup\",\n    \"price\": 150000,\n    \"unit\": \"pack\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
 			},
 			"response": []
 		},
@@ -295,7 +483,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\" : \"hamedgk\",\n    \"password\" : \"hahafafa\"\n}",
+					"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"hahafafa\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -324,11 +512,21 @@
 		{
 			"name": "token_refresh",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyOTU4OTE3NywiaWF0IjoxNzI5NTAyNzc3LCJqdGkiOiI3ZjNkZjZiMDhiMGI0YmI0YjEzY2I5OTg3ZjIxNmFlZSIsInVzZXJfaWQiOjJ9.aDRp8KaySoxE53Cs0HYkicicvX-7rcBU-xJkgS4uO_0",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\" : \"hamedgk\",\n    \"password\" : \"hahafafa\"\n}",
+					"raw": "{\n    \"refresh\" : \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyOTc1MjUwOSwiaWF0IjoxNzI5NjY2MTA5LCJqdGkiOiI5NTY5NDcxZDgyYjA0NDc1YWFiZDAyZGQ0NzI0OWE0OCIsInVzZXJfaWQiOjJ9.Gjub8nHRIPKNkbnI3WaZW0cV3nIiPORSWe_VUWCimn0\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -336,7 +534,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/token/",
+					"raw": "http://127.0.0.1:8000/api/token/refresh/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -348,11 +546,46 @@
 					"path": [
 						"api",
 						"token",
+						"refresh",
 						""
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bearer_admin",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5ODg5MzU5LCJpYXQiOjE3Mjk4MDI5NTksImp0aSI6IjE5MjBhYzIxYzg4NDQ5NDE5MTViMmU5Y2VlYjY4NzgxIiwidXNlcl9pZCI6MX0.HKeP1TXNsqPfsNk7k_0qevAYb-s3DfTNyph-svFVxyQ",
+			"type": "string"
+		},
+		{
+			"key": "bearer",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5ODg5NDAxLCJpYXQiOjE3Mjk4MDMwMDEsImp0aSI6IjIwYjdkMTU0ZjNkMjQxOTI4NWU4ZmVhMWIyNmVlOTc4IiwidXNlcl9pZCI6Mn0.TC217DvmqIGSj8FCsO0SdR-eslQxiontV6jb5rufl8Q",
+			"type": "string"
 		}
 	]
 }
