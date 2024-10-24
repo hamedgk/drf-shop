@@ -1,5 +1,6 @@
 #### initial setup:
-below command automatically creates db based on .env file, installs requirements and run containers
+below command automatically creates db based on .env file, installs requirements and run containers.
+exposing .env file is a bad practice. but I have nothing to lose here.
 ```bash
 docker-compose up
 ```
