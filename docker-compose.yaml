@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    environment:
+      - SQL_USER=${SQL_USER}
+      - SQL_PASSWORD=${SQL_PASSWORD}
+      - SQL_DATABASE=${SQL_DATABASE}
+      - SQL_PORT=${SQL_PORT}
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env
+    volumes:
+      - .:/shop
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${SQL_USER}
+      - POSTGRES_PASSWORD=${SQL_PASSWORD}
+      - POSTGRES_DB=${SQL_DATABASE}
+      - POSTGRES_PORT=${SQL_PORT}
+
+volumes:
+  postgres_data:
